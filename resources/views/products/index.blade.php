@@ -30,6 +30,7 @@
                 <td>{{ $product->stock }}</td>
                 <td>
                   <a href="{{ route('products.show', $product) }}"><button>Ver</button></a>
+                  <a href="{{ route('products.edit', $product) }}"><button>Editar</button></a>
                   <form action="{{ route('products.destroy', $product) }}" method="POST" style="display: inline;">
                     @csrf
                     @method('DELETE')
