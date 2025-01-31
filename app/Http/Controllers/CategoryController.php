@@ -66,4 +66,10 @@ class CategoryController extends Controller
         $category->delete();
         return redirect()->route('categories.index');
     }
+
+    public function showProducts(Category $category)
+    {
+        $products = $category->products;
+        return view('products.index', compact('products'));
+    }
 }
