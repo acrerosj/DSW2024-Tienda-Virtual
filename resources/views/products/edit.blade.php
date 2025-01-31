@@ -10,6 +10,13 @@
 <form action="{{ route('products.update', ['product' => $product->id]) }}" method="POST">
     @csrf
     @method('PUT')
+    <label for="category_id">Categoría</label>
+    <select name="category_id" id="category_id" required>
+        <option value="" disabled>Selecciona una categoria</option>
+        @foreach ($categories as $category)
+            <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
+        @endforeach
+    </select>
     <label for="name">Nombre</label>
     <input type="text" name="name" id="name" value="{{ $product->name }}" required>
     <label for="description">Descripción</label>

@@ -15,6 +15,7 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Descripción</th>
+            <th>Nº Productos</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -24,6 +25,7 @@
                 <td>{{ $category->id }}</td>
                 <td>{{ $category->name }}</td>
                 <td>{{ $category->description }}</td>
+                <td>{{ count($category->products) }}</td>
                 <td>
                   <a href="{{ route('categories.show', $category) }}"><button>Ver</button></a>
                   <a href="{{ route('categories.edit', $category) }}"><button>Editar</button></a>
@@ -36,3 +38,4 @@
             </tr>
         @endforeach
     </tbody>
+@endsection

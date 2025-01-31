@@ -13,6 +13,7 @@
     <thead>
         <tr>
             <th>ID</th>
+            <th>Categoría</th>
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Precio</th>
@@ -24,6 +25,7 @@
         @foreach ($products as $product)
             <tr>
                 <td>{{ $product->id }}</td>
+                <td>{{ $product->category->name }}</td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->description }}</td>
                 <td>{{ number_format($product->price, 2) }}€</td>
