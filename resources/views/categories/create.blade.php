@@ -1,19 +1,37 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Nueva Categoría') }}
+        </h2>
+    </x-slot>
 
-@section('title', 'Nueva Categoría')
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                <form action="{{ route('categories.store') }}" method="POST" class="form">
+                    @csrf
+                    <p>
+                        <label for="name">Nombre</label>
+                        <input type="text" name="name" id="name" required>
+                    </p>
+                    <p>
+                        <label for="description">Descripción</label>
+                    </p>
+                    <p>
+                        <textarea name="description" id="description" required></textarea>
+                    </p>
+                    <p>
+                        <button type="submit" class="btn">Guardar</button>
+                    </p>
+                </form>
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('css/form.css') }}">
-@endpush
 
-@section('content')
-<h1>Nueva Categoría</h1>
-<form action="{{ route('categories.store') }}" method="POST">
-    @csrf
-    <label for="name">Nombre</label>
-    <input type="text" name="name" id="name" required>
-    <label for="description">Descripción</label>
-    <textarea name="description" id="description" required></textarea>
-    <button type="submit">Guardar</button>
-</form>
-@endsection
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
+
+
+

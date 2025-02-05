@@ -10,9 +10,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    <h1>Lista de Productos</h1>
-                    <a href="{{ route('products.create') }}" class="bg-orange-400 p-10 inline-block">Nuevo Producto</a>
-                    <table>
+                    <a href="{{ route('products.create') }}" class="btn mb-4">Nuevo Producto</a>
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -34,12 +33,12 @@
                                 <td>{{ number_format($product->price, 2) }}€</td>
                                 <td>{{ $product->stock }}</td>
                                 <td>
-                                    <a href="{{ route('products.show', $product) }}"><button>Ver</button></a>
-                                    <a href="{{ route('products.edit', $product) }}"><button>Editar</button></a>
-                                    <form action="{{ route('products.destroy', $product) }}" method="POST" style="display: inline;">
+                                    <a href="{{ route('products.show', $product) }}" class="btn">Ver</a>
+                                    <a href="{{ route('products.edit', $product) }}" class="btn">Editar</a>
+                                    <form action="{{ route('products.destroy', $product) }}" method="POST" class="inline-block">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit">Eliminar</button>
+                                        <button type="submit" class="btn">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>
