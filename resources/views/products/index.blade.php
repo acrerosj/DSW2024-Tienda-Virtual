@@ -37,6 +37,10 @@
                                 <td>{{ $product->stock }}</td>
                                 <td>
                                     <a href="{{ route('products.show', $product) }}" class="btn success">Ver</a>
+                                    <form action="{{ route('addToCart', $product)}}" class="inline-block" method="post">
+                                        @csrf
+                                         <button type="submit" class="btn">Añadir al carrito</button>
+                                    </form>
                                     @if (Auth::check() && Auth::user()->is_admin)
                                     <a href="{{ route('products.edit', $product) }}" class="btn warning">Editar</a>
                                     <form action="{{ route('products.destroy', $product) }}" method="POST" class="inline-block">
