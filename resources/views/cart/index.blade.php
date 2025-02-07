@@ -50,10 +50,15 @@
                     <button type="submit" class="btn danger">Vaciar Carrito</button>
                   </form>
                   @auth
-                      <button>Realizar pedido</button>
+                      <p>
+                        <form action="{{ route('orders.store') }}" method="post" class="inline-block">
+                          @csrf
+                          <button type="submit" class="btn">Realizar Pedido</button>
+                        </form>
+                      </p>
                   @else
                       <p>Debes registrarte para hacer el pedido: 
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}" class="btn">Login</a>
                       </p>
                   @endauth
               </div>
